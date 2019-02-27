@@ -35,8 +35,21 @@ git submodule init
 git submodule update
 ant
 
+## install pyqt for ovs-toolbox
+apt install python3-pip
+pip3 install lxml
+pip3 install paramiko
+sudo apt-get install python3-pyqt5
+git clone https://github.com/nbonnand/ovs-toolbox.git
+
+sudo apt-get install p7zip
+wget https://drive.google.com/uc?export=download&confirm=oJvu&id=1hBI4H7hPFeD8xzaCA_c2N31RHhsOakyS
+7z x debian-7.11.0-i386.7z
+sudo apt-get install qemu-utils
+qemu-img convert -O vdi debian-7.11.0-i386.qcow2 debian.vdi
 
 
 java -jar target/floodlight.jar &
-sudo ovs-vsctl set-controller br0 tcp:192.168.1.2:6653
+## http://<controller-ip>:8080/ui/index.html
+sudo ovs-vsctl set-controller br0 tcp:127.0.0.1:6653
 
